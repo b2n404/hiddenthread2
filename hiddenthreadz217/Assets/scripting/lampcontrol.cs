@@ -10,24 +10,6 @@ public class EnableCompenents : MonoBehaviour
        lamp = GetComponent<Light>();
     }
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if(other.gameObject.tag == "Player")
-    //     {
-    //         lampon = true;
-    //         lamp.enabled = false; 
-    //     }
-    // }
-
-    // void OnTriggerExit (Collider other)
-    // {
-    //     if (other.gameObject.tag == "Player")
-    //     {
-    //         lampon = false;
-    //         lamp.enabled = true;
-    //     }
-    // }
-
     // Update is called once per frame
     void Update()
     {
