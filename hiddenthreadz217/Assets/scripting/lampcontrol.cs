@@ -1,8 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnableCompenents : MonoBehaviour
 {
     private Light lamp;
+    public GameObject book;
+    public GameObject lampbutton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,5 +27,11 @@ public class EnableCompenents : MonoBehaviour
         
     }
 
- 
+    // void OnCollisionEnter(Collision other)
+    // {
+    //     if(other.gameObject.CompareTag("book"))
+    //     lamp = GetComponent<Light>();
+    // }
+
+
 }
