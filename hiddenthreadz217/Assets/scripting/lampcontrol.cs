@@ -27,6 +27,14 @@ public class EnableCompenents : MonoBehaviour
         
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if(book.gameObject.CompareTag("lampon"))
+        {
+            lamp.intensity = 1;
+        }
+    }
+
     // void OnCollisionEnter(Collision other)
     // {
     //     if(other.gameObject.CompareTag("book"))
