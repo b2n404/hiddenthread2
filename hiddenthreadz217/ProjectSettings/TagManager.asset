@@ -8,6 +8,7 @@ TagManager:
   - lampon
   - lamp
   - book
+  - key
   layers:
   - Default
   - TransparentFX
