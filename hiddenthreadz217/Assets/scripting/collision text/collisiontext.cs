@@ -23,19 +23,20 @@ public class collisiontext : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("player"))
+        if(other.gameObject.CompareTag("bookshelf"))
         {
             PressX.SetActive(true);
-             if(Input.GetKeyUp(KeyCode.X))
-            {
-            PressX.SetActive(false);
-            bookshelftext.SetActive(true);
-            }
+
         }
     }
 
     void LateUpdate()
     {
-       
+       if(Input.GetKeyUp(KeyCode.X))
+            {
+            PressX.SetActive(false);
+            // bookshelftext.SetActive(true);
+            }
+        
     }
 }
