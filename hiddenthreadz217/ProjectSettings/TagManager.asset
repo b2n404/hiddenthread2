@@ -9,6 +9,9 @@ TagManager:
   - lamp
   - book
   - key
+  - wall
+  - bookshelf
+  - player
   layers:
   - Default
   - TransparentFX
