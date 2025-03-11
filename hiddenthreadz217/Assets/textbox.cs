@@ -25,7 +25,7 @@ public class GameMenu : MonoBehaviour
 
         if(GUI.Button(new Rect(5,y, windowRect.width - 10, 20), "Restart"))
         {
-            Application.LoadLevel (0);
+            //Application.LoadLevel (0);
             show = false;
         }
 

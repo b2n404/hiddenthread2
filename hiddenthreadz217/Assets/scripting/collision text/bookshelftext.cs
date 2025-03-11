@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class collisiontextv2 : MonoBehaviour
 {
-        //text
-    public GameObject PressX;
+    public GameObject PressXbookshelf;
     public GameObject bookshelftext;
+
+    //public bool bookshelftext = false;
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,7 +28,7 @@ public class collisiontextv2 : MonoBehaviour
     {
         if(other.gameObject.CompareTag("player"))
         {
-            PressX.SetActive(true);
+            PressXbookshelf.SetActive(true);
 
         }
     }
@@ -34,11 +37,12 @@ public class collisiontextv2 : MonoBehaviour
     {
        if(Input.GetKeyUp(KeyCode.X))
             {
-            PressX.SetActive(false);
+            PressXbookshelf.SetActive(false);
             bookshelftext.SetActive(true);
+          
             }
         if(Input.GetKeyUp(KeyCode.C))
-        {
+        { 
             bookshelftext.SetActive(false);
         }
         
