@@ -3,12 +3,12 @@ using UnityEngine;
 public class walltext : MonoBehaviour
 {
 
-    public GameObject PressXwall;
+    //public GameObject PressXwall;
     public GameObject Walltext;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Walltext.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,7 +20,8 @@ public class walltext : MonoBehaviour
     {
         if(other.gameObject.CompareTag("player"))
         {
-            PressXwall.SetActive(true);
+            //PressXwall.SetActive(true);
+            Walltext.SetActive(true);
             
 
         }
@@ -30,13 +31,13 @@ public class walltext : MonoBehaviour
     {
        if(Input.GetKeyUp(KeyCode.X))
             {
-            PressXwall.SetActive(false);
-            Walltext.SetActive(true);
+            //ressXwall.SetActive(false);
+            Walltext.SetActive(false);
             }
-         if(Input.GetKeyUp(KeyCode.C))
-         {
-             Walltext.SetActive(false);
-         }
+        //  if(Input.GetKeyUp(KeyCode.C))
+        //  {
+        //      Walltext.SetActive(false);
+        //  }
         
     }
 }
