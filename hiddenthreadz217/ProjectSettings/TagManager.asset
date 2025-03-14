@@ -12,6 +12,7 @@ TagManager:
   - wall
   - bookshelf
   - player
+  - desk
   layers:
   - Default
   - TransparentFX

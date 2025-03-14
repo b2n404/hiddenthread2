@@ -4,14 +4,18 @@ using UnityEngine;
 public class collisiontext : MonoBehaviour
 {
     //text
-    public GameObject PressX;
+    //public GameObject PressX;
     public GameObject bookshelftext;
+    public GameObject walltext;
+
+    public GameObject desktext;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         bookshelftext.SetActive(false);
-        PressX.SetActive(false);
+
+        //PressX.SetActive(false);
         
     }
 
@@ -25,8 +29,18 @@ public class collisiontext : MonoBehaviour
     {
         if(other.gameObject.CompareTag("bookshelf"))
         {
-            PressX.SetActive(true);
+            //PressX.SetActive(true);
+            bookshelftext.SetActive(true);
 
+        }
+        if(other.gameObject.CompareTag("wall"))
+        {
+            walltext.SetActive(true);
+        }
+
+        if(other.gameObject.CompareTag("desk"))
+        {
+            desktext.SetActive(true);
         }
     }
 
@@ -34,8 +48,10 @@ public class collisiontext : MonoBehaviour
     {
        if(Input.GetKeyUp(KeyCode.X))
             {
-            PressX.SetActive(false);
-            // bookshelftext.SetActive(true);
+            //PressX.SetActive(false);
+            bookshelftext.SetActive(false);
+            walltext.SetActive(false);
+            desktext.SetActive(false);
             }
         
     }
