@@ -5,6 +5,7 @@ using UnityEngine;
 public class lampbuttoncontrol : MonoBehaviour
 {
     public Light lamp;
+    public Light lamp2;
     public GameObject book;
 
     public GameObject LAMPINTEXT;
@@ -29,6 +30,7 @@ public class lampbuttoncontrol : MonoBehaviour
         if(other.gameObject.CompareTag("book"))
         {
             lamp.intensity = 1;
+            lamp2.intensity = 1;
 
             Destroy(LAMPINTEXT);
             // pressxtextforlamp.SetActive(false);
