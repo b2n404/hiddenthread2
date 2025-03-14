@@ -13,6 +13,8 @@ TagManager:
   - bookshelf
   - player
   - desk
+  - bedroomdoor1
+  - TOHALLWAY
   layers:
   - Default
   - TransparentFX
