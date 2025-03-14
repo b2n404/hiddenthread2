@@ -57,7 +57,7 @@ public class collisiontext : MonoBehaviour
         }
         if(other.gameObject.CompareTag("TOHALLWAY"))
         {
-            SceneManager.LoadScene("Hallway");
+            SceneManager.LoadScene("Main2-kitchen-livingroom");
         }
     }
 
