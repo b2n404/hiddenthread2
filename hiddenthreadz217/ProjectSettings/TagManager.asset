@@ -15,6 +15,7 @@ TagManager:
   - desk
   - bedroomdoor1
   - TOHALLWAY
+  - tokitchen
   layers:
   - Default
   - TransparentFX
