@@ -21,5 +21,10 @@ public class collision3 : MonoBehaviour
         {
             SceneManager.LoadScene("Main3-bathroom");
         }
+
+        if(other.gameObject.CompareTag("tobedroom"))
+        {
+            SceneManager.LoadScene("Main4-bedroom2");
+        }
     }
 }

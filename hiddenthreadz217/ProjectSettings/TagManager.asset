@@ -19,6 +19,7 @@ TagManager:
   - clothes
   - basket
   - tobathroom
+  - tobedroom
   layers:
   - Default
   - TransparentFX
