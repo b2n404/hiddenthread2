@@ -16,6 +16,8 @@ TagManager:
   - bedroomdoor1
   - TOHALLWAY
   - tokitchen
+  - clothes
+  - basket
   layers:
   - Default
   - TransparentFX

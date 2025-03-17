@@ -16,7 +16,7 @@ public class collisiontext : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bookshelftext.SetActive(false);
+       // bookshelftext.SetActive(false);
 
         //PressX.SetActive(false);
         
@@ -57,7 +57,7 @@ public class collisiontext : MonoBehaviour
         }
         if(other.gameObject.CompareTag("TOHALLWAY"))
         {
-            SceneManager.LoadScene("Main2-kitchen-livingroom");
+            SceneManager.LoadScene("Hallway");
         }
     }
 
