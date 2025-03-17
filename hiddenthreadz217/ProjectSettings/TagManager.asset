@@ -18,6 +18,7 @@ TagManager:
   - tokitchen
   - clothes
   - basket
+  - tobathroom
   layers:
   - Default
   - TransparentFX

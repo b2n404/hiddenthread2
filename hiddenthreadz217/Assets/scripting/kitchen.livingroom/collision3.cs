@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class collision3 : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class collision3 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.CompareTag("tobathroom"))
+        {
+            SceneManager.LoadScene("Main3-bathroom");
+        }
     }
 }

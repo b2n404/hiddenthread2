@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class lampbuttoncontrol : MonoBehaviour
 {
@@ -13,10 +14,13 @@ public class lampbuttoncontrol : MonoBehaviour
     public GameObject pressxtextforlamp;
 
     public GameObject lampinvesttext;
+
+    public GameObject KEY;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //lamp = GetComponent<Light>();
+        KEY.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,6 +37,7 @@ public class lampbuttoncontrol : MonoBehaviour
             lamp2.intensity = 1;
 
             Destroy(LAMPINTEXT);
+            KEY.SetActive(true);
             // pressxtextforlamp.SetActive(false);
             // lampinvesttext.SetActive(false);
             
