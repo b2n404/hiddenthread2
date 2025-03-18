@@ -20,6 +20,10 @@ TagManager:
   - basket
   - tobathroom
   - tobedroom
+  - dorothy
+  - dorothy2
+  - bed2bathdoor
+  - off
   layers:
   - Default
   - TransparentFX

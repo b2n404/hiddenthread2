@@ -10,8 +10,16 @@ public class collisiontext : MonoBehaviour
     //public GameObject walltext;
     public GameObject exitdoortext;
     public GameObject desktext;
+    public GameObject thought1;
+    public GameObject thought2;
+    public GameObject bed2bath;
 
+    public GameObject bookshelfcollider;
     public GameObject level1doorcollider;
+    public GameObject wheredorothy;
+    public GameObject whodorothy;
+    public GameObject key1;
+    public GameObject bed2bathcollider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +42,9 @@ public class collisiontext : MonoBehaviour
         {
             //PressX.SetActive(true);
             bookshelftext.SetActive(true);
+            Destroy(whodorothy);
+            Destroy(bookshelfcollider); 
+
 
         }
         // if(other.gameObject.CompareTag("wall"))
@@ -54,10 +65,31 @@ public class collisiontext : MonoBehaviour
         if(other.gameObject.CompareTag("key"))
         {
             Destroy(level1doorcollider);
+            key1.SetActive(false);   
+            
         }
         if(other.gameObject.CompareTag("TOHALLWAY"))
         {
             SceneManager.LoadScene("Hallway");
+        }
+        if(other.gameObject.CompareTag("dorothy"))
+        {
+            thought1.SetActive(true);
+        }
+        if(other.gameObject.CompareTag("dorothy2"))
+        {
+            Destroy(wheredorothy);
+            thought1.SetActive(false);
+            thought2.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("bed2bathdoor"))
+        {
+            bed2bath.SetActive(true);
+            Destroy(bed2bathcollider);
+        }
+        if(other.gameObject.CompareTag("off"))
+        {
+            thought2.SetActive(false);
         }
     }
 
