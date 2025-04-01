@@ -24,6 +24,7 @@ TagManager:
   - dorothy2
   - bed2bathdoor
   - off
+  - fridge
   layers:
   - Default
   - TransparentFX
