@@ -4,6 +4,8 @@ public class fridgeinvestigation : MonoBehaviour
 {
     public string targetTag = "Player";
     //public float delaytime = 4f;
+    
+    //pictures images 
     public GameObject drawing1;
     public GameObject drawing2;
     
@@ -78,6 +80,11 @@ public class fridgeinvestigation : MonoBehaviour
         void OnTriggerEnter(Collider other)
     {
         inTriggerArea = true;
+
+        Debug.Log("player entered area");
+        lookdrawing1.SetActive(true);
+        lookdrawing2.SetActive(true);
+
         if(other.gameObject.CompareTag("Player"))
         {
 
@@ -104,9 +111,6 @@ public class fridgeinvestigation : MonoBehaviour
 
         }
         //////////////////////////
-        Debug.Log("player entered area");
-        lookdrawing1.SetActive(true);
-        lookdrawing2.SetActive(true);
         //drawing1.SetActive(true);
         //drawing1.SetActive(false, delaytime);
         }
@@ -126,6 +130,9 @@ public class fridgeinvestigation : MonoBehaviour
             lookdrawing2.SetActive(false);
         }
     }
+
+
+    
 
 
 }
