@@ -19,11 +19,7 @@ MonoBehaviour:
     rid: 2093119802117193732
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/Main1-bedroom 1.unity
-  - m_enabled: 1
     m_path: Assets/Scenes/Hallway.unity
-  - m_enabled: 1
-    m_path: Assets/Scenes/Main2-kitchen-livingroom.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Main3-bathroom.unity
   - m_enabled: 1
