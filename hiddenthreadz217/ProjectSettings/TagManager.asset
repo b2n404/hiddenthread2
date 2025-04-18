@@ -25,6 +25,7 @@ TagManager:
   - bed2bathdoor
   - off
   - fridge
+  - climb
   layers:
   - Default
   - TransparentFX

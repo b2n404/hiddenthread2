@@ -22,6 +22,10 @@ MonoBehaviour:
     m_path: Assets/Scenes/Hallway.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Main4-bedroom2.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Main3-bathroom.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/kitchen.countertop.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []
