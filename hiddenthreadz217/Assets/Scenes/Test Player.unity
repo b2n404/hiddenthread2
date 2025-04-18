@@ -321,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e475e460ce825834f9986df8694d4791, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.59
+      value: 0.586
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e475e460ce825834f9986df8694d4791, type: 3}
       propertyPath: m_LocalPosition.z
@@ -355,9 +355,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2417167741163616272, guid: e475e460ce825834f9986df8694d4791, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.3927
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e475e460ce825834f9986df8694d4791, type: 3}
       propertyPath: m_Name
       value: BEARyay
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e475e460ce825834f9986df8694d4791, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 189e015f4613a5148a937ae154f13776, type: 2}
+    - target: {fileID: 5866666021909216657, guid: e475e460ce825834f9986df8694d4791, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -450,7 +462,7 @@ Transform:
   m_GameObject: {fileID: 1373691009}
   serializedVersion: 2
   m_LocalRotation: {x: -0.059541933, y: 0.91344887, z: -0.1454391, w: -0.37538433}
-  m_LocalPosition: {x: -123.666916, y: -281.9412, z: 318.99884}
+  m_LocalPosition: {x: 3.19355, y: 1.384, z: -10.032297}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
