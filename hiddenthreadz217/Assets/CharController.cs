@@ -1,16 +1,52 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
+using Unity.Hierarchy;
+using NUnit.Framework.Internal.Commands;
 
 public class CharController : MonoBehaviour
 {
+    private CharacterController controller;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    private float playerSpeed = 2.0f;
+    private float jumpHeight = 1.0f;
+    private float gravityValue = -9.81f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        controller = gameObject.AddComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+
+        // Horizontal input
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        move = Vector3.ClampMagnitude(move, 1f); // Optional: prevents faster diagonal movement
+
+        if (move != Vector3.zero)
+        {
+            transform.forward = move;
+        }
+
+        //Jump
+        if (Input.GetButtonDown("jump") && groundedPlayer)
+        {
+            playerVelocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+        }
+
+        // Apply gravity
+        playerVelocity.y += gravityValue * Time.deltaTime;
+
+        //Combine horizontal and vertical movement
+        Vector3 finalMove = (move * playerSpeed) + (playerVelocity.y * Vector3.up);
+        controller.Move(finalMove * Time.deltaTime);
     }
 }
