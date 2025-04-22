@@ -691,14 +691,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49733330}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.77, y: -1.159076, z: -17.41}
+  m_LocalRotation: {x: -0, y: -0.3870511, z: -0, w: 0.92205834}
+  m_LocalPosition: {x: -10.944065, y: 5.35, z: -58.199615}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 455668667}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -45.542, z: 0}
 --- !u!4 &55001469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc3862cfe1570b6458f33cadea0db8ee, type: 3}
@@ -2431,7 +2431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44c0d2a4eb9723e47aa7e4bc06614e2b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.971
+      value: 0.906
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44c0d2a4eb9723e47aa7e4bc06614e2b, type: 3}
       propertyPath: m_LocalPosition.z

@@ -44,7 +44,7 @@ public class downcounter : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         inTriggerArea = false;
-        Debug.Log("player exited");
+        Debug.Log("player exited the area");
         climbdowntext.SetActive(false);
     }
 
