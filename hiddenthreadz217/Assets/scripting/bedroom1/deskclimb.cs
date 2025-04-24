@@ -44,8 +44,9 @@ public class deskclimb : MonoBehaviour
 
 
         }
+    }
 
-        void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
         {
             inTriggerArea = false;
             Debug.Log("player exited");
@@ -57,4 +58,4 @@ public class deskclimb : MonoBehaviour
 
 
     }
-}
+    
