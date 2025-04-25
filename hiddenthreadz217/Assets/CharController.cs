@@ -1,52 +1,88 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
-using Unity.Hierarchy;
-using NUnit.Framework.Internal.Commands;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class CharController : MonoBehaviour
+// Originally from Unity examples at:
+// https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+//
+// 3:55 PM 10/3/2020
+//
+// Reworked by @kurtdekker so that it jumps reliably in modern Unity versions.
+//
+// To use:
+//    - make your player shape about 1x2x1 in size
+//    - put this script on the root of it
+//
+// That's it.
+
+public class UnityExampleCharMover : MonoBehaviour
 {
     private CharacterController controller;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
+    private float verticalVelocity;
+    private float groundedTimer;        // to allow jumping when going down ramps
     private float playerSpeed = 2.0f;
     private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float gravityValue = 9.81f;
+
     private void Start()
     {
+        // always add a controller
         controller = gameObject.AddComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        bool groundedPlayer = controller.isGrounded;
+        if (groundedPlayer)
         {
-            playerVelocity.y = 0f;
+            // cooldown interval to allow reliable jumping even whem coming down ramps
+            groundedTimer = 0.2f;
+        }
+        if (groundedTimer > 0)
+        {
+            groundedTimer -= Time.deltaTime;
         }
 
-        // Horizontal input
+        // slam into the ground
+        if (groundedPlayer && verticalVelocity < 0)
+        {
+            // hit ground
+            verticalVelocity = 0f;
+        }
+
+        // apply gravity always, to let us track down ramps properly
+        verticalVelocity -= gravityValue * Time.deltaTime;
+
+        // gather lateral input control
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        move = Vector3.ClampMagnitude(move, 1f); // Optional: prevents faster diagonal movement
 
-        if (move != Vector3.zero)
+        // scale by speed
+        move *= playerSpeed;
+
+        // only align to motion if we are providing enough input
+        if (move.magnitude > 0.05f)
         {
-            transform.forward = move;
+            gameObject.transform.forward = move;
         }
 
-        //Jump
-        if (Input.GetButtonDown("jump") && groundedPlayer)
+        // allow jump as long as the player is on the ground
+        if (Input.GetButtonDown("Jump"))
         {
-            playerVelocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
+            // must have been grounded recently to allow jump
+            if (groundedTimer > 0)
+            {
+                // no more until we recontact ground
+                groundedTimer = 0;
+
+                // Physics dynamics formula for calculating jump up velocity based on height and gravity
+                verticalVelocity += Mathf.Sqrt(jumpHeight * 2 * gravityValue);
+            }
         }
 
-        // Apply gravity
-        playerVelocity.y += gravityValue * Time.deltaTime;
+        // inject Y velocity before we use it
+        move.y = verticalVelocity;
 
-        //Combine horizontal and vertical movement
-        Vector3 finalMove = (move * playerSpeed) + (playerVelocity.y * Vector3.up);
-        controller.Move(finalMove * Time.deltaTime);
+        // call .Move() once only
+        controller.Move(move * Time.deltaTime);
     }
 }
