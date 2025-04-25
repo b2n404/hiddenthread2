@@ -13,6 +13,9 @@ public class deskclimb : MonoBehaviour
 
     private bool inTriggerArea = false;
 
+    //public GameObject deskcollider;
+    public GameObject topdesktrigger;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,11 +25,8 @@ public class deskclimb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inTriggerArea && Input.GetKey(KeyCode.O))
+        if (inTriggerArea && Input.GetKey(KeyCode.C))
         {
-            //SceneManager.LoadScene("Main1-bedroom-desk");
-
-
             Player.SetActive(false);
             player.position = destination.position;
             Player.SetActive(true);
@@ -35,10 +35,10 @@ public class deskclimb : MonoBehaviour
 
         }
 
-        if (inTriggerArea && Input.GetKey(KeyCode.X))
-        {
-            climbdesktext.SetActive(false);
-        }
+        // if (inTriggerArea && Input.GetKey(KeyCode.X))
+        // {
+        //     climbdesktext.SetActive(false);
+        // }
 
     }
 
@@ -62,6 +62,9 @@ public class deskclimb : MonoBehaviour
         inTriggerArea = false;
         Debug.Log("player exited");
         climbdesktext.SetActive(false);
+        //deskcollider.SetActive(false);
+        topdesktrigger.SetActive(false);
+        
     }
 
 

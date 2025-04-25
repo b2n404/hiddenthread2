@@ -2,6 +2,7 @@ using UnityEngine;
 //using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class downdesk : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class downdesk : MonoBehaviour
 
     private bool inTriggerArea = false;
 
+    public GameObject topdesktrigger;
+
+    //public GameObject deskcollider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,19 +27,21 @@ public class downdesk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inTriggerArea && Input.GetKey(KeyCode.O))
+        if (inTriggerArea && Input.GetKey(KeyCode.V))
         {
             Player.SetActive(false);
             player.position = destinationfloor.position;
             Player.SetActive(true);
 
             climbdowntext.SetActive(false);
+            topdesktrigger.SetActive(false);
         }
 
-        if (inTriggerArea && Input.GetKey(KeyCode.X))
-        {
-            climbdowntext.SetActive(false);
-        }
+        // if (inTriggerArea && Input.GetKey(KeyCode.X))
+        // {
+        //     climbdowntext.SetActive(false);
+            
+        // }
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,7 +52,8 @@ public class downdesk : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            climbdowntext.SetActive(true);
+            climbdowntext.SetActive(true); 
+            topdesktrigger.SetActive(false);
         }
     }
 
