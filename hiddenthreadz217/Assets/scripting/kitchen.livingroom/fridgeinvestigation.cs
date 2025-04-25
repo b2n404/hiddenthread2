@@ -27,21 +27,23 @@ public class fridgeinvestigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inTriggerArea && Input.GetKey(KeyCode.Keypad1))
+        if(inTriggerArea && Input.GetKey(KeyCode.K))
         {
             lookdrawing1.SetActive(false);
-            lookdrawing2.SetActive(false);
+            lookdrawing2.SetActive(true);
             drawing1.SetActive(true);
+            drawing2.SetActive(false);
         }
 
-        if(inTriggerArea && Input.GetKey(KeyCode.Keypad2))
+        if(inTriggerArea && Input.GetKey(KeyCode.J))
         {
             lookdrawing2.SetActive(false);
-            lookdrawing1.SetActive(false);
+            lookdrawing1.SetActive(true);
             drawing2.SetActive(true);
+            drawing1.SetActive(false);
         }
 
-        if(inTriggerArea && Input.GetKey(KeyCode.Tab))
+        if(inTriggerArea && Input.GetKey(KeyCode.X))
         {
             drawing1.SetActive(false); 
             drawing2.SetActive(false);
@@ -85,35 +87,35 @@ public class fridgeinvestigation : MonoBehaviour
         lookdrawing1.SetActive(true);
         lookdrawing2.SetActive(true);
 
-        if(other.gameObject.CompareTag("Player"))
-        {
+        //if(other.gameObject.CompareTag("Player"))
+       // {
 
-        if(Input.GetKey(KeyCode.Keypad1))
-        {
-            lookdrawing1.SetActive(false);
-            lookdrawing2.SetActive(false);
-            drawing1.SetActive(true);
-        }
+        // if(Input.GetKey(KeyCode.Keypad1))
+        // {
+        //     lookdrawing1.SetActive(false);
+        //     lookdrawing2.SetActive(false);
+        //     drawing1.SetActive(true);
+        // }
 
-        if(Input.GetKey(KeyCode.Keypad2))
-        {
-            lookdrawing2.SetActive(false);
-            lookdrawing1.SetActive(false);
-            drawing2.SetActive(true);
-        }
+        // if(Input.GetKey(KeyCode.Keypad2))
+        // {
+        //     lookdrawing2.SetActive(false);
+        //     lookdrawing1.SetActive(false);
+        //     drawing2.SetActive(true);
+        // }
 
-        if(Input.GetKey(KeyCode.Tab))
-        {
-            drawing1.SetActive(false); 
-            drawing2.SetActive(false);
-            lookdrawing1.SetActive(true);
-            lookdrawing2.SetActive(true);
+        // if(Input.GetKey(KeyCode.Tab))
+        // {
+        //     drawing1.SetActive(false); 
+        //     drawing2.SetActive(false);
+        //     lookdrawing1.SetActive(true);
+        //     lookdrawing2.SetActive(true);
 
-        }
+        // }
         //////////////////////////
         //drawing1.SetActive(true);
         //drawing1.SetActive(false, delaytime);
-        }
+        //}
         
     
     }
