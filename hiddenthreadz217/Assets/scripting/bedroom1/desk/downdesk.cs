@@ -1,11 +1,16 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class downdesk : MonoBehaviour
 {
     public GameObject climbdowntext;
 
     public string targetTag = "Player";
+
+    public GameObject Player;
+    public Transform player, destinationfloor;
 
     private bool inTriggerArea = false;
 
@@ -20,7 +25,11 @@ public class downdesk : MonoBehaviour
     {
         if (inTriggerArea && Input.GetKey(KeyCode.O))
         {
-            SceneManager.LoadScene("Main1-bedroom-down");
+            Player.SetActive(false);
+            player.position = destinationfloor.position;
+            Player.SetActive(true);
+
+            climbdowntext.SetActive(false);
         }
 
         if (inTriggerArea && Input.GetKey(KeyCode.X))

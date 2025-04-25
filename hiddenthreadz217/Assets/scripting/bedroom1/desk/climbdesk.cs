@@ -1,10 +1,13 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class deskclimb : MonoBehaviour
 {
     public string targetTag = "Player";
-
+    public GameObject Player;
+    public Transform player, destination;
 
     public GameObject climbdesktext;
 
@@ -21,7 +24,15 @@ public class deskclimb : MonoBehaviour
     {
         if (inTriggerArea && Input.GetKey(KeyCode.O))
         {
-            SceneManager.LoadScene("Main1-bedroom-desk");
+            //SceneManager.LoadScene("Main1-bedroom-desk");
+
+
+            Player.SetActive(false);
+            player.position = destination.position;
+            Player.SetActive(true);
+
+            climbdesktext.SetActive(false);
+
         }
 
         if (inTriggerArea && Input.GetKey(KeyCode.X))
@@ -47,15 +58,14 @@ public class deskclimb : MonoBehaviour
     }
 
     void OnTriggerExit(Collider other)
-        {
-            inTriggerArea = false;
-            Debug.Log("player exited");
-            climbdesktext.SetActive(false);
-        }
-
-
-
-
-
+    {
+        inTriggerArea = false;
+        Debug.Log("player exited");
+        climbdesktext.SetActive(false);
     }
-    
+
+
+
+
+
+}
