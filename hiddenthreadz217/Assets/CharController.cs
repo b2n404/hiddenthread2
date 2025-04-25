@@ -23,6 +23,7 @@ public class AdjustCollider : MonoBehaviour
 
    void Start()
    {
+       Debug.Log("hello_world");
        capsuleCollider = GetComponent<CapsuleCollider>();
        capsuleCollider.radius = newRadius;
        capsuleCollider.height = newHeight;
