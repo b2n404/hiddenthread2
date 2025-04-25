@@ -14,6 +14,20 @@ using UnityEngine;
 //    - put this script on the root of it
 //
 // That's it.
+public class AdjustCollider : MonoBehaviour
+{
+   public float newRadius;
+   public float newHeight;
+
+   private CapsuleCollider capsuleCollider;
+
+   void Start()
+   {
+       capsuleCollider = GetComponent<CapsuleCollider>();
+       capsuleCollider.radius = newRadius;
+       capsuleCollider.height = newHeight;
+   }
+}
 
 public class UnityExampleCharMover : MonoBehaviour
 {
