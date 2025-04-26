@@ -1,22 +1,21 @@
 using UnityEngine;
-//using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
-public class climb : MonoBehaviour
+public class descendcounter : MonoBehaviour
 {
-
-    public GameObject climbcountertext;
 
     public string targetTag = "Player";
 
+    public GameObject Player;
+    public GameObject descendcountertext;
+    public Transform player, livingroomfloor;
+    public GameObject countertoptarget;
+
+
     private bool inTriggerArea = false;
 
-    public GameObject Player;
-
-    public Transform player, counterdestination;
-
-    public GameObject countertrigger;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,16 +26,15 @@ public class climb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(inTriggerArea && Input.GetKey(KeyCode.C))
+        if (inTriggerArea && Input.GetKey(KeyCode.V))
         {
             Player.SetActive(false);
-            player.position = counterdestination.position;
+            player.position = livingroomfloor.position;
             Player.SetActive(true);
 
-            climbcountertext.SetActive(false);
+            descendcountertext.SetActive(false);
+            countertoptarget.SetActive(false);
         }
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -44,19 +42,17 @@ public class climb : MonoBehaviour
         inTriggerArea = true;
         Debug.Log("player entered");
 
-
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            climbcountertext.SetActive(true);
+            descendcountertext.SetActive(true); 
+            countertoptarget.SetActive(false);
         }
     }
-
     void OnTriggerExit(Collider other)
     {
         inTriggerArea = false;
         Debug.Log("player exited");
-        climbcountertext.SetActive(false);
 
+        descendcountertext.SetActive(false);
     }
-
 }
