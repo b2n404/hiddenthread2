@@ -35,10 +35,10 @@ public class deskclimb : MonoBehaviour
 
         }
 
-        // if (inTriggerArea && Input.GetKey(KeyCode.X))
-        // {
-        //     climbdesktext.SetActive(false);
-        // }
+        if (inTriggerArea && Input.GetKey(KeyCode.X))
+        {
+            climbdesktext.SetActive(false);
+        }
 
     }
 
@@ -52,6 +52,16 @@ public class deskclimb : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             climbdesktext.SetActive(true);
+
+            // if (Input.GetKeyDown(KeyCode.C))
+            // {
+            //     Player.SetActive(false);
+            //     player.position = destination.position;
+            //     Player.SetActive(true);
+
+            //     climbdesktext.SetActive(false);
+
+            // }
 
 
         }

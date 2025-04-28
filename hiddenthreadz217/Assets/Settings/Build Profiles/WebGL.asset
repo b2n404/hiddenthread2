@@ -25,10 +25,6 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Scenes/Main3-bathroom.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/bedroom2scenes/Main1-bedroom-down.unity
-  - m_enabled: 1
-    m_path: Assets/Scenes/bedroom2scenes/Main1-bedroom-desk.unity
-  - m_enabled: 1
     m_path: Assets/Scenes/Main2-kitchen-livingroom/countertop/kitchen.countertop.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Main2-kitchen-livingroom/Main2-kitchen-livingroom-down.unity

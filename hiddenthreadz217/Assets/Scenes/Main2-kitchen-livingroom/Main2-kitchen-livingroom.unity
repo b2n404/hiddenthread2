@@ -337,9 +337,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -1506624780917711053, guid: 01e9b59eb1561544ebad90cbbc8d7be7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 11389221}
-    - targetCorrespondingSourceObject: {fileID: -1506624780917711053, guid: 01e9b59eb1561544ebad90cbbc8d7be7, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 11389225}
     - targetCorrespondingSourceObject: {fileID: -1506624780917711053, guid: 01e9b59eb1561544ebad90cbbc8d7be7, type: 3}
       insertIndex: -1
@@ -355,30 +352,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -1506624780917711053, guid: 01e9b59eb1561544ebad90cbbc8d7be7, type: 3}
   m_PrefabInstance: {fileID: 11389218}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &11389221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11389220}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3e510775bf4fd4f9f0f8245dc9c528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  climbcountertext: {fileID: 0}
-  targetTag: Player
-  Player: {fileID: 0}
-  player: {fileID: 0}
-  counterdestination: {fileID: 0}
-  countertrigger: {fileID: 0}
-  img: {fileID: 0}
-  blackscreenimg: {fileID: 0}
-  targetOpacity: 0
-  targetOpacity2: 0
-  fadeTime: 2
-  fadeTime2: 0
 --- !u!65 &11389225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11002,12 +10975,6 @@ MonoBehaviour:
   player: {fileID: 549915301}
   counterdestination: {fileID: 1022322167}
   countertrigger: {fileID: 1022322166}
-  img: {fileID: 1605418456}
-  blackscreenimg: {fileID: 1605418454}
-  targetOpacity: 1
-  targetOpacity2: 0
-  fadeTime: 0.4
-  fadeTime2: 0.3
 --- !u!65 &1256420653
 BoxCollider:
   m_ObjectHideFlags: 0
