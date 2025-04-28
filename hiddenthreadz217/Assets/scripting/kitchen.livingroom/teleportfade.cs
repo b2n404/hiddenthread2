@@ -1,23 +1,7 @@
 // using UnityEngine;
-// //using UnityEngine.SceneManagement;
-// using System.Collections;
-// using System.Collections.Generic;
 
-// public class climb : MonoBehaviour
+// public class teleportfade : MonoBehaviour
 // {
-
-//     public GameObject climbcountertext;
-
-//     public string targetTag = "Player";
-
-//     private bool inTriggerArea = false;
-
-//     public GameObject Player;
-
-//     public Transform player, counterdestination;
-
-//     public GameObject countertrigger;
-
 //     // Start is called once before the first execution of Update after the MonoBehaviour is created
 //     void Start()
 //     {
@@ -27,45 +11,9 @@
 //     // Update is called once per frame
 //     void Update()
 //     {
-
-//         if(inTriggerArea && Input.GetKey(KeyCode.C))
-//         {
-//             Player.SetActive(false);
-//             player.position = counterdestination.position;
-//             Player.SetActive(true);
-
-//             climbcountertext.SetActive(false);
-//         }
-
+        
 //     }
-
-
-//     void OnTriggerEnter(Collider other)
-//     {
-//         inTriggerArea = true;
-//         Debug.Log("player entered");
-
-
-//         if(other.gameObject.CompareTag("Player"))
-//         {
-//             climbcountertext.SetActive(true);
-//         }
-//     }
-
-//     void OnTriggerExit(Collider other)
-//     {
-//         inTriggerArea = false;
-//         Debug.Log("player exited");
-//         climbcountertext.SetActive(false);
-
-//     }
-
 // }
-
-
-// THE FOLLOWING HAS A GLITCH WHERE EVERYTIME THE C KEY IS PRESSED THE SCREEN FADES - TRYING TO FIX THIS 
-
-
 
 
 using UnityEngine;
@@ -78,7 +26,7 @@ using UnityEngine.Rendering;
 //using UnityEngine.UIElements;
 
 
-public class climb : MonoBehaviour
+public class teleportfade : MonoBehaviour
 {
 
     public GameObject climbcountertext;
@@ -264,5 +212,4 @@ public class climb : MonoBehaviour
         climbcountertext.SetActive(false);
 
     }
-
 }
