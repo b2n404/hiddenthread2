@@ -1,73 +1,100 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
+// Originally from Unity examples at:
+// https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
+//
+// 3:55 PM 10/3/2020
+//
+// Reworked by @kurtdekker so that it jumps reliably in modern Unity versions.
+//
+// To use:
+//    - make your player shape about 1x2x1 in size
+//    - put this script on the root of it
+//
+// That's it.
+
 public class MyCoolController : MonoBehaviour
+//public class CharacterControllerAdjuster : MonoBehaviour
 {
-    private CharacterController controller;
+    public CharacterController controller;
     private float verticalVelocity;
     private float groundedTimer;        // to allow jumping when going down ramps
     private float playerSpeed = 2.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = 9.81f;
+    public float newRadius = 0.01f;
+    public float newHeight = 0.01f;
+
+    private CharacterController CharacterController;
+
 
     private void Start()
     {
         // always add a controller
-        // controller = gameObject.AddComponent<CharacterController>();
+        controller = gameObject.AddComponent<CharacterController>();
     }
 
-    // void Update()
-    // {
-    //     bool groundedPlayer = controller.isGrounded;
-    //     if (groundedPlayer)
-    //     {
-    //         // cooldown interval to allow reliable jumping even whem coming down ramps
-    //         groundedTimer = 0.2f;
-    //     }
-    //     if (groundedTimer > 0)
-    //     {
-    //         groundedTimer -= Time.deltaTime;
-    //     }
+    void Update()
+    {
 
-    //     // slam into the ground
-    //     if (groundedPlayer && verticalVelocity < 0)
-    //     {
-    //         // hit ground
-    //         verticalVelocity = 0f;
-    //     }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            CharacterController.radius = newRadius;
+            CharacterController.height = newHeight;
+        }
+        bool groundedPlayer = controller.isGrounded;
+        if (groundedPlayer)
+        {
+            // cooldown interval to allow reliable jumping even whem coming down ramps
+            groundedTimer = 0.2f;
+        }
+        if (groundedTimer > 0)
+        {
+            groundedTimer -= Time.deltaTime;
+        }
 
-    //     // apply gravity always, to let us track down ramps properly
-    //     verticalVelocity -= gravityValue * Time.deltaTime;
+        // slam into the ground
+        if (groundedPlayer && verticalVelocity < 0)
+        {
+            // hit ground
+            verticalVelocity = 0f;
+        }
 
-    //     // gather lateral input control
-    //     Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        // apply gravity always, to let us track down ramps properly
+        verticalVelocity -= gravityValue * Time.deltaTime;
 
-    //     // scale by speed
-    //     move *= playerSpeed;
+        // gather lateral input control
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-    //     // only align to motion if we are providing enough input
-    //     if (move.magnitude > 0.05f)
-    //     {
-    //         gameObject.transform.forward = move;
-    //     }
+        // scale by speed
+        move *= playerSpeed;
 
-    //     // allow jump as long as the player is on the ground
-    //     if (Input.GetButtonDown("Jump"))
-    //     {
-    //         // must have been grounded recently to allow jump
-    //         if (groundedTimer > 0)
-    //         {
-    //             // no more until we recontact ground
-    //             groundedTimer = 0;
+        // only align to motion if we are providing enough input
+        if (move.magnitude > 0.05f)
+        {
+            gameObject.transform.forward = move;
+        }
 
-    //             // Physics dynamics formula for calculating jump up velocity based on height and gravity
-    //             verticalVelocity += Mathf.Sqrt(jumpHeight * 2 * gravityValue);
-    //         }
-    //     }
+        // allow jump as long as the player is on the ground
+        if (Input.GetButtonDown("Jump"))
+        {
+            // must have been grounded recently to allow jump
+            if (groundedTimer > 0)
+            {
+                // no more until we recontact ground
+                groundedTimer = 0;
 
-    //     // inject Y velocity before we use it
-    //     move.y = verticalVelocity;
+                // Physics dynamics formula for calculating jump up velocity based on height and gravity
+                verticalVelocity += Mathf.Sqrt(jumpHeight * 2 * gravityValue);
+            }
+        }
 
-    //     // call .Move() once only
-    //     controller.Move(move * Time.deltaTime);
-    // }
+        // inject Y velocity before we use it
+        move.y = verticalVelocity;
+
+        // call .Move() once only
+        controller.Move(move * Time.deltaTime);
+    }
 }
