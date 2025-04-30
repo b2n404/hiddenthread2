@@ -35,9 +35,9 @@ public class UnityExampleCharMover : MonoBehaviour
     private CharacterController controller;
     private float verticalVelocity;
     private float groundedTimer;        // to allow jumping when going down ramps
-    private float playerSpeed = 2.0f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = 9.81f;
+    private float playerSpeed = 3.0f;
+    private float jumpHeight = 1.5f;
+    private float gravityValue = 9.0f;
 
     private void Start()
     {
