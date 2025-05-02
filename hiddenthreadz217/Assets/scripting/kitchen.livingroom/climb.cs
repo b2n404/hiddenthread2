@@ -108,16 +108,24 @@ public class climb : MonoBehaviour
 
     IEnumerator DelayTeleport()
     {
-        if(bystool == true && Input.GetKey(KeyCode.C))
-        {
-            yield return new WaitForSeconds(2);
-            Player.SetActive(false);
+        // if(bystool == true && Input.GetKey(KeyCode.C))
+        // {
+        //     yield return new WaitForSeconds(2);
+        //     Player.SetActive(false);
+        //     player.position = counterdestination.position;
+        //     Player.SetActive(true);
+
+        //     bystool = false;
+
+        // }
+
+         yield return new WaitForSeconds(2);
+            //Player.SetActive(false);
             player.position = counterdestination.position;
-            Player.SetActive(true);
+            //Player.SetActive(true);
 
             bystool = false;
 
-        }
 
     }
 
