@@ -2,6 +2,8 @@ using UnityEngine;
 //using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 public class climb : MonoBehaviour
 {
@@ -10,13 +12,28 @@ public class climb : MonoBehaviour
 
     public string targetTag = "Player";
 
-    private bool inTriggerArea = false;
+    public bool bystool = false;
 
     public GameObject Player;
 
     public Transform player, counterdestination;
 
     public GameObject countertrigger;
+
+
+
+
+    public Image img;
+
+    public GameObject blackscreenimg;
+
+    public float targetOpacity = 0.0f;    //the following two WORK 
+
+    public float targetOpacity2 = 0.0f;
+    public float fadeTime = 2.0f;
+
+    public float fadeTime2 = 0.0f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,38 +45,115 @@ public class climb : MonoBehaviour
     void Update()
     {
 
-        if(inTriggerArea && Input.GetKey(KeyCode.C))
+        if(bystool == true && Input.GetKey(KeyCode.C))
         {
+            // Player.SetActive(false);
+            // player.position = counterdestination.position;
+            // Player.SetActive(true);
+            climbcountertext.SetActive(false);
+            bystool = false;
+
+
+
+
+            StartCoroutine(FadeImage());  //THIS WORKS 
+
+            StartCoroutine(DelayFade(2.0f));
+
+            StartCoroutine(DelayTeleport());
+
+
+        }
+
+    }
+
+/////////////////////////// 
+
+ private IEnumerator FadeImage() // THIS ALSO WORKS 
+    {
+        if(bystool = true)
+        {
+
+            float alpha = img.color.a;
+            for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / fadeTime)
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, Mathf.Lerp(alpha, targetOpacity, t));
+
+                yield return null;
+
+            }
+        }
+    }
+
+
+        IEnumerator DelayFade(float delay)
+    {
+
+        yield return new WaitForSeconds(delay);
+        float alpha = img.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / fadeTime2)
+        {
+            img.color = new Color(img.color.r, img.color.g, img.color.b, Mathf.Lerp(alpha, targetOpacity2, t));
+            yield return null;
+
+        }
+
+         if(bystool == true && Input.GetKey(KeyCode.C))
+        {
+           blackscreenimg.SetActive(false);
+
+        }
+
+    }
+
+    IEnumerator DelayTeleport()
+    {
+        if(bystool == true && Input.GetKey(KeyCode.C))
+        {
+            yield return new WaitForSeconds(2);
             Player.SetActive(false);
             player.position = counterdestination.position;
             Player.SetActive(true);
 
-            climbcountertext.SetActive(false);
+            bystool = false;
+
         }
 
     }
 
 
+/////////////////////////////////
+
     void OnTriggerEnter(Collider other)
     {
-        inTriggerArea = true;
-        Debug.Log("player entered");
+        // bystool = true;
+        // Debug.Log("player entered");
 
 
         if(other.gameObject.CompareTag("Player"))
         {
+            bystool = true;
+            Debug.Log("player entered");
             climbcountertext.SetActive(true);
+
+
         }
     }
 
+
+
+
     void OnTriggerExit(Collider other)
     {
-        inTriggerArea = false;
+        bystool = false;
         Debug.Log("player exited");
         climbcountertext.SetActive(false);
 
+        
+
     }
 
+    
 }
 
 

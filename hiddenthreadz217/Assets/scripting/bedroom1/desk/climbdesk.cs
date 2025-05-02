@@ -2,83 +2,137 @@ using UnityEngine;
 //using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class deskclimb : MonoBehaviour
 {
-    public string targetTag = "Player";
     public GameObject Player;
     public Transform player, destination;
 
     public GameObject climbdesktext;
 
-    private bool inTriggerArea = false;
+    public bool bydesk = false;
 
-    //public GameObject deskcollider;
     public GameObject topdesktrigger;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
+    public Image img;
+
+    public GameObject blackscreenimg;
+
+    public float targetOpacity = 0.0f;    //the following two WORK 
+
+    public float targetOpacity2 = 0.0f;
+    public float fadeTime = 2.0f;
+
+    public float fadeTime2 = 0.0f;
+
     void Start()
     {
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (inTriggerArea && Input.GetKey(KeyCode.C))
+        if (bydesk == true && Input.GetKey(KeyCode.C))
         {
-            Player.SetActive(false);
-            player.position = destination.position;
-            Player.SetActive(true);
+            // Player.SetActive(false);
+            // player.position = destination.position;
+            // Player.SetActive(true);
 
             climbdesktext.SetActive(false);
+            bydesk = false;
+
+            StartCoroutine(FadeImage());  //THIS WORKS 
+
+            StartCoroutine(DelayFade(2.0f));
+
+            StartCoroutine(DelayTeleport());
 
         }
 
-        if (inTriggerArea && Input.GetKey(KeyCode.X))
-        {
-            climbdesktext.SetActive(false);
-        }
-
+    
     }
 
     void OnTriggerEnter(Collider other)
     {
-        inTriggerArea = true;
-
-        Debug.Log("player entered area");
-
-
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("player entered area");
             climbdesktext.SetActive(true);
+            bydesk = true;
 
-            // if (Input.GetKeyDown(KeyCode.C))
-            // {
-            //     Player.SetActive(false);
-            //     player.position = destination.position;
-            //     Player.SetActive(true);
-
-            //     climbdesktext.SetActive(false);
-
-            // }
 
 
         }
     }
 
-    void OnTriggerExit(Collider other)
+    /////////////////////////// 
+
+ private IEnumerator FadeImage() // THIS ALSO WORKS 
     {
-        inTriggerArea = false;
-        Debug.Log("player exited");
-        climbdesktext.SetActive(false);
-        //deskcollider.SetActive(false);
-        topdesktrigger.SetActive(false);
-        
+        if(bydesk = true)
+        {
+
+            float alpha = img.color.a;
+            for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / fadeTime)
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, Mathf.Lerp(alpha, targetOpacity, t));
+
+                yield return null;
+
+            }
+        }
     }
 
 
+        IEnumerator DelayFade(float delay)
+    {
+
+        yield return new WaitForSeconds(delay);
+        float alpha = img.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / fadeTime2)
+        {
+            img.color = new Color(img.color.r, img.color.g, img.color.b, Mathf.Lerp(alpha, targetOpacity2, t));
+            yield return null;
+
+        }
+
+         if(bydesk == true && Input.GetKey(KeyCode.C))
+        {
+           //img.canvasRenderer(false);
+           blackscreenimg.SetActive(false);
+
+        }
+
+    }
+
+    IEnumerator DelayTeleport()
+    {
+        if(bydesk == true && Input.GetKey(KeyCode.C))
+        {
+            yield return new WaitForSeconds(2);
+            Player.SetActive(false);
+            player.position = destination.position;
+            Player.SetActive(true);
+
+            bydesk = false;
+
+        }
+
+    }
 
 
+/////////////////////////////////
 
-}
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player")) {
+            bydesk = false;
+            Debug.Log("player exited");
+            climbdesktext.SetActive(false);
+            //deskcollider.SetActive(false);
+            topdesktrigger.SetActive(false);
+        }
+    }
+}   
