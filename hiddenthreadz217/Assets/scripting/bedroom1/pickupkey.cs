@@ -11,6 +11,9 @@ public class pickupkey : MonoBehaviour
 
     public GameObject LEVELTRIGGERSCENELOAD;
     public GameObject keytext;
+
+
+    public GameObject keypic;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +29,8 @@ public class pickupkey : MonoBehaviour
             keytext.SetActive(false);
             LEVELTRIGGERSCENELOAD.SetActive(true);
             doortext1.SetActive(false);
+
+            keypic.SetActive(true);
 
         }
 

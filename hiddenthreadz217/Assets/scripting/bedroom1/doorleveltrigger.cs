@@ -23,7 +23,7 @@ public class doorleveltrigger : MonoBehaviour
         if (inTriggerArea && Input.GetKey(KeyCode.X))
         {
             opendoortext.SetActive(false);
-            SceneManager.LoadScene("Hallway");
+            SceneManager.LoadScene("Main2-kitchen-livingroom");
         }
 
 

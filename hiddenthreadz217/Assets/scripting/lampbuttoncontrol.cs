@@ -7,13 +7,13 @@ public class lampbuttoncontrol : MonoBehaviour
 {
     public Light lamp;
     public Light lamp2;
-    public GameObject book;
+    //public GameObject book;
 
     public GameObject LAMPINTEXT;
 
-    public GameObject pressxtextforlamp;
+    //public GameObject pressxtextforlamp;
 
-    public GameObject lampinvesttext;
+    //public GameObject lampinvesttext;
 
     //public GameObject KEY;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
