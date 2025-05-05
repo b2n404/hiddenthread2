@@ -61,7 +61,7 @@ public class descendcounter : MonoBehaviour
 
  private IEnumerator FadeImage() // THIS ALSO WORKS 
     {
-        if(downcounter = true)
+        if(downcounter == true)
         {
 
             float alpha = img.color.a;

@@ -69,7 +69,7 @@ public class downdesk : MonoBehaviour
 
  private IEnumerator FadeImage() // THIS ALSO WORKS 
     {
-        if(downd = true)
+        if(downd == true)
         {
 
             float alpha = img.color.a;
