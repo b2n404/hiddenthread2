@@ -19,11 +19,6 @@ MonoBehaviour:
     rid: 2093119802117193732
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/STARTSCENE.unity
-  - m_enabled: 1
-    m_path: Assets/Scenes/Main Scenes/MAIN_DEMO_SCENES/Main1-bedroom 1/Main1-bedroom
-      1.unity
-  - m_enabled: 1
     m_path: Assets/Scenes/Main Scenes/MAIN_DEMO_SCENES/Main2-kitchen-livingroom/Main2-kitchen-livingroom.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

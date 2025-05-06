@@ -18,6 +18,7 @@ public class scenefadein : MonoBehaviour
     public Image img;
 
     public GameObject scenefadeinscreen;
+    public GameObject xtoexittext;
 
     public float targetOpacity;
     public float fadeTime;
@@ -36,9 +37,11 @@ public class scenefadein : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.C))
+        if(Input.GetKey(KeyCode.X))
         {
             howplaytext.SetActive(false);
+            xtoexittext.SetActive(false);
+            
         }
     }
     
